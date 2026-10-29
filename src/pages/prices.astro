@@ -96,11 +96,10 @@ const sites = [
 
   <section class="fs-section fs-section--dark">
     <div class="fs-wrap fs-stack">
-      <span class="fs-tag">Реклама</span>
-      <h2>Реклама</h2>
+      <h2>Заявки в ваш бизнес</h2>
       <div class="fs-grid" style="--cols: 3; --cols-t: 1; margin-top: 14px;">
         {ads.map((item) => (
-          <article class="fs-card">
+          <article class="fs-card fs-card--price">
             <h3>{item.title}</h3>
             <p class="fs-muted">{item.text}</p>
             {item.gift && <p class="fs-gift"><b>В подарок:</b> {item.gift}</p>}
@@ -115,11 +114,10 @@ const sites = [
 
   <section class="fs-section fs-section--light">
     <div class="fs-wrap fs-stack">
-      <span class="fs-tag">Сайты</span>
       <h2>Сайты и поиск</h2>
       <div class="fs-grid" style="--cols: 3; --cols-t: 1; margin-top: 14px;">
         {sites.map((item) => (
-          <article class="fs-card">
+          <article class="fs-card fs-card--price">
             <h3>{item.title}</h3>
             <p class="fs-muted">{item.text}</p>
             <span class="fs-price">{item.price}</span>
@@ -137,16 +135,15 @@ const sites = [
 
   <section class="fs-section">
     <div class="fs-wrap fs-stack">
-      <span class="fs-tag">Брендинг</span>
       <h2>Брендинг и упаковка</h2>
-      <div class="fs-split" style="margin-top: 14px;">
-        <article class="fs-card fs-card--lime">
+      <div class="fs-split" style="margin-top: 14px; align-items: stretch;">
+        <article class="fs-card fs-card--lime fs-card--price">
           <h3>Брендинг и упаковка магазина</h3>
           <p class="fs-muted">Логотип, фирменный стиль, оформление соцсетей и карточек – чтобы магазин узнавали и в ленте, и на витрине.</p>
           <span class="fs-price">от 15 000 ₽</span>
           <a class="fs-btn" href="#popup:myform">Обсудить</a>
         </article>
-        <img class="fs-photo" src="/tf-flowers/img/flowers/37373233-ChatGPT_Image_15__20.png" alt="Сборный букет в крафтовой упаковке" loading="lazy" style="height: 420px; object-position: center 72%;" />
+        <div class="fs-photo-box"><img class="fs-photo" src="/tf-flowers/img/flowers/37373233-ChatGPT_Image_15__20.png" alt="Сборный букет в крафтовой упаковке" loading="lazy" style="object-position: center 60%;" /></div>
       </div>
 
       <div class="fs-strip" style="margin-top: 30px;">

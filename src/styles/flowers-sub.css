@@ -293,6 +293,33 @@
   line-height: 1.05;
 }
 
+/* Карточка с ценой: цена и кнопка прижаты к низу, ровно по ряду */
+.fs-card--price {
+  display: flex;
+  flex-direction: column;
+}
+
+.fs-card--price .fs-btn {
+  align-self: flex-start;
+}
+
+/* Фото рядом с карточкой: высоту задаёт карточка, фото её заполняет */
+.fs-photo-box {
+  position: relative;
+  min-height: 260px;
+}
+
+.fs-photo-box .fs-photo {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+}
+
+.fs-card--price .fs-price {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
 .fs-card .fs-btn {
   justify-self: start;
   margin-top: 6px;
@@ -576,6 +603,15 @@
 
   .fs-btn--ghost {
     justify-content: center;
+  }
+
+  .fs-card--price .fs-btn {
+    align-self: stretch;
+  }
+
+  .fs-photo-box {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
   }
 
   .fs-photo {
