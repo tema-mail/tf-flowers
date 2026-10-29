@@ -1,0 +1,150 @@
+---
+/** Новая главная, блоки 6–10а прототипа flowers v2: видео-отзывы,
+    праздники, было / стало, этапы, баннер, цены, бонусы.
+    Цитаты – из расшифровок видео-отзывов (docs/otzyvy-rasshifrovki.md). */
+const I = '/tf-flowers/img/flowers/';
+const kinescope = (id: string) => `https://kinescope.io/embed/${id}?preload=0`;
+
+const reviews = [
+  ['qanCz44Rme7zJXBcPZJFEH', 'Алексей, цветочный магазин, Тюмень', 'Продажи из ВКонтакте и подробный отчёт каждую неделю и каждый месяц'],
+  ['pB2kHWLuyFSAMz9HB5YH5f', 'Антон Зайцев, цветочный магазин, Нижний Новгород', 'Маркетинг целиком: креативы и тексты команда делает сама'],
+  ['sdDRmLfYR18D3GDpCJG4vD', 'Руслан, сеть салонов Boombox, Пенза', 'Пришёл от другого таргетолога и остался'],
+];
+
+const dates = [
+  ['14 февраля', 'мужчины заказывают онлайн'],
+  ['8 Марта', 'главный пик года'],
+  ['1 сентября', 'букеты учителям'],
+  ['День матери', '29 ноября'],
+];
+
+const steps = [
+  ['Бесплатный созвон и аудит', 'Разбираем рекламу и магазин, показываем ошибки и что можно сделать'],
+  ['Рабочий чат и договор', 'Сразу понятно, кто за что отвечает. Договор, работаем с ЭДО'],
+  ['Подготовка и запуск', 'Сообщество, кабинет, объявления – показываем, что и почему настроили'],
+  ['Отчёты и улучшения', 'Каждую неделю – отчёт простым языком и идеи, что улучшить'],
+];
+
+const bonuses = [
+  ['Кэшбэк с рекламного бюджета', 'Часть того, что вы тратите на рекламу, возвращается на рекламный счёт.'],
+  ['Запуск гео-рекламы', 'Магазин на Яндекс Картах и в 2ГИС с рекламой по району: вас находят те, кто ищет «цветы рядом».'],
+  ['Сайт в подарок', 'Сайт с каталогом букетов и заказом – как Milovini и HoliFlori ниже.'],
+];
+
+const allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+---
+
+<section class="fs-section">
+  <div class="fs-wrap fs-stack fs-center">
+    <span class="fs-tag">Видео-отзывы</span>
+    <h2>Больше 6 лет с цветочными – скопили опыт, кейсы и слова благодарности</h2>
+    <p class="fs-lead">Посмотрите видео-отзывы наших клиентов. Все отзывы и разбор главного – на отдельной странице.</p>
+    <div class="fs-grid fh-swipe" style="--cols: 3; --cols-t: 3; margin-top: 14px; text-align: left;">
+      {reviews.map(([id, who, main]) => (
+        <article class="fs-card">
+          <iframe class="fs-video fs-video--tall" src={kinescope(id)} allow={allow} allowfullscreen loading="lazy" title={`Видео-отзыв: ${who}`}></iframe>
+          <h3>{who}</h3>
+          <p class="fs-muted">{main}</p>
+        </article>
+      ))}
+    </div>
+    <a class="fs-btn" href="/tf-flowers/reviews/">Все видео-отзывы</a>
+  </div>
+</section>
+
+<section class="fs-section fs-section--light">
+  <div class="fs-wrap fs-stack">
+    <span class="fs-tag">Праздники</span>
+    <h2>Праздники готовим за месяц, а не за день до</h2>
+    <div class="fs-grid" style="--cols: 4; --cols-t: 2; --cols-m: 2; margin-top: 14px;">
+      {dates.map(([d, note], i) => (
+        <div class:list={['fh-date', i === 3 && 'fh-date--hot']}><b>{d}</b><span class="fs-muted">{note}</span></div>
+      ))}
+    </div>
+    <div class="fs-split" style="margin-top: 14px;">
+      <div class="fs-stack">
+        <ul class="fs-list">
+          <li><b>До праздника</b> – прогреваем базу и делаем рассылку, чтобы заказы пришли заранее</li>
+          <li><b>В пик</b> – реклама по району, чат-бот отвечает, пока флористы собирают</li>
+          <li><b>В несезон</b> – держим спрос рассылками по базе и рекламой, без «скидки 40%»</li>
+        </ul>
+        <div class="fs-actions"><a class="fs-btn" href="#plan">Хочу отработать праздник лучше</a></div>
+      </div>
+      <img class="fs-photo" src={I + '32396563-ChatGPT_Image_17__20.png'} alt="Цветочный магазин с букетами к празднику" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="fs-section">
+  <div class="fs-wrap fs-stack fs-center">
+    <span class="fs-tag">Было / стало</span>
+    <h2>Что меняется в магазине, когда маркетинг ведём мы</h2>
+    <div class="fh-ba" style="margin-top: 14px; text-align: left;">
+      <div class="fh-ba__col fh-ba__col--now">
+        <img src={I + '31663164-ChatGPT_Image_17__20.png'} alt="" loading="lazy" />
+        <h3>Сейчас</h3>
+        <ul class="fh-marks fh-marks--no">
+          <li>Заказы – от тех, кто проходит мимо, и с агрегаторов</li>
+          <li>Одно объявление крутится месяцами</li>
+          <li>База покупателей есть, рассылок нет</li>
+          <li>Отчётов и доступа к кабинету нет</li>
+        </ul>
+        <p class="fh-result"><b>Итог:</b> выручка держится на праздниках</p>
+      </div>
+      <div class="fh-ba__col fh-ba__col--us">
+        <img src={I + '37373233-ChatGPT_Image_15__20.png'} alt="Большой сборный букет" loading="lazy" style="object-position: center 65%; background: #dbdbdb;" />
+        <h3>С TargetFactory</h3>
+        <ul class="fh-marks fh-marks--yes">
+          <li>ВКонтакте, Директ, карты и рассылки работают вместе</li>
+          <li>Каждую неделю пробуем новое объявление или аудиторию</li>
+          <li>Пишем тем, кто уже покупал, к их праздникам</li>
+          <li>Кабинет ваш, отчёт каждую неделю</li>
+        </ul>
+        <p class="fh-result"><b>Итог:</b> заказы из интернета каждую неделю, а не только 8 Марта</p>
+      </div>
+    </div>
+    <div class="fs-grid" style="--cols: 3; --cols-t: 1; margin-top: 18px; text-align: left;">
+      <div class="fh-bubble fh-bubble--tilt">«Постоянно человек на связи, какие-то вопросы решаем сразу. И <mark>развёрнутый отчёт постоянно – как за неделю, так и за месяц</mark>».<small>Алексей, Тюмень – из видео-отзыва</small></div>
+      <div class="fh-bubble">«<mark>Они полностью сами всё настраивают</mark> – не только техническую часть, но и маркетингом занимаются».<small>Антон Зайцев, Нижний Новгород – из видео-отзыва</small></div>
+      <div class="fh-bubble fh-bubble--tilt-r">«У меня уже был таргетолог, его работа не очень устраивала. <mark>Решил попробовать, как будет вести сообщество Денис</mark>».<small>Руслан, Пенза – из видео-отзыва</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-section--light">
+  <div class="fs-wrap fs-stack">
+    <span class="fs-tag">Этапы работы</span>
+    <h2>Четыре шага от созвона до первых заказов</h2>
+    <div class="fs-grid" style="--cols: 4; --cols-t: 2; margin-top: 14px;">
+      {steps.map(([title, text], i) => (
+        <article class="fs-card"><span class="fs-step">0{i + 1}</span><h3>{title}</h3><p class="fs-muted">{text}</p></article>
+      ))}
+    </div>
+    <div class="fh-banner" style="margin-top: 20px;">
+      <div class="fh-banner__text">
+        <p>Ваша группа и реклама готовы к праздникам? Проверим бесплатно на созвоне</p>
+        <div class="fs-actions"><a class="fs-btn" href="#plan">Проверить мою группу</a></div>
+      </div>
+      <img src={I + '38663061-ChatGPT_Image_17__20.png'} alt="Букеты в мастерской цветочного магазина" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="fs-section fs-section--dark">
+  <div class="fs-wrap fs-stack">
+    <div class="fs-strip" style="background: #2b2b2b;">
+      <p>Реклама, сайты, SEO, брендинг – <b>цены на все услуги</b> на одной странице</p>
+      <a class="fs-btn fs-btn--lime" href="/tf-flowers/prices/">Смотреть цены</a>
+    </div>
+
+    <span class="fs-tag" style="margin-top: 50px;">Бонусы</span>
+    <h2>Бонусы при старте работы</h2>
+    <div class="fs-grid" style="--cols: 3; --cols-t: 1; margin-top: 14px;">
+      {bonuses.map(([title, text]) => (
+        <article class="fs-card fs-card--lime"><h3>{title}</h3><p class="fs-muted">{text}</p></article>
+      ))}
+    </div>
+    <p class="fs-muted">Оформление группы и чат-бот уже входят в пакеты – за это обычно берут 5–15 тыс. ₽.</p>
+    <div class="fs-actions"><a class="fs-btn fs-btn--lime" href="#plan">Забронировать бонусы</a></div>
+  </div>
+</section>
