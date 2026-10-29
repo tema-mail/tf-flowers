@@ -81,6 +81,17 @@
   align-items: center;
 }
 
+/* Фраза флориста под таблицей «Почему мы»: крупно, по центру */
+.fh-florist {
+  max-width: 860px;
+  margin: 36px auto 6px !important;
+  font-size: clamp(24px, 2.8vw, 36px) !important;
+  font-weight: 600;
+  line-height: 1.15 !important;
+  letter-spacing: -0.8px !important;
+  text-align: center;
+}
+
 /* Пузырь сообщения: цитата клиента или пример нашего сообщения */
 .fh-bubble {
   position: relative;
