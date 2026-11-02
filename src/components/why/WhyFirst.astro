@@ -201,7 +201,7 @@ const usTitle = 'Мы – TargetFactory';
     color: #fff;
   }
 
-  .wf-col--us .wf-card b {
+  .wf-col--us .wf-card :global(b) {
     color: var(--fs-lime);
   }
 
@@ -288,75 +288,110 @@ const usTitle = 'Мы – TargetFactory';
     }
   }
 
-  /* ТЕЛЕФОН: всё в колонку, сравнение парами */
+  /* ТЕЛЕФОН – по мобильному фрейму Figma 48:3330 (ширина 300).
+     Все размеры – в долях ширины фрейма: --u = 1px макета. */
   @media (max-width: 640px) {
     .wf {
-      padding-bottom: 40px;
+      --u: calc(100vw / 300);
+      padding-bottom: calc(24 * var(--u));
+      border-radius: 0 0 calc(20 * var(--u)) calc(20 * var(--u));
+      overflow: hidden;
     }
 
     .wf-wrap {
-      width: calc(100% - 20px);
+      width: 100%;
     }
 
     .wf-top {
-      display: grid;
-      justify-items: center;
-      padding-bottom: 40px;
+      height: calc(601 * var(--u));
+      padding: 0;
+    }
+
+    .wf-top > * {
+      position: absolute !important;
+      margin: 0 !important;
+    }
+
+    .wf-art {
+      inset: 0;
+    }
+
+    .wf-shadow,
+    .wf-floor {
+      display: block !important;
+    }
+
+    .wf-shadow {
+      top: calc(444.6 * var(--u));
+      left: calc(25.7 * var(--u));
+      width: calc(325.8 * var(--u));
+    }
+
+    .wf-floor {
+      top: calc(518.3 * var(--u));
+      left: calc(33.6 * var(--u));
+      width: calc(231 * var(--u));
+      transform: rotate(-21.08deg);
+    }
+
+    .wf-photo {
+      z-index: 1;
+      top: calc(185.5 * var(--u));
+      left: calc(-10.2 * var(--u));
+      width: calc(318.5 * var(--u));
+      max-width: none;
     }
 
     .wf-tag {
-      order: 1;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: calc(10 * var(--u));
     }
 
     .wf-h1 {
-      order: 2;
-      margin-top: 12px !important;
+      top: calc(41.9 * var(--u));
+      left: calc(16 * var(--u));
+      width: calc(268 * var(--u));
       max-width: none !important;
-      font-size: 28px !important;
-      letter-spacing: -0.8px;
+      font-size: calc(22 * var(--u)) !important;
+      letter-spacing: -0.5px;
       text-align: center;
     }
 
     .wf-lead {
-      order: 3;
+      top: calc(128.6 * var(--u));
+      left: calc(10 * var(--u));
+      width: calc(277 * var(--u));
       max-width: none !important;
-      margin-top: 18px;
-      padding: 0 6px;
-      font-size: 16px;
-    }
-
-    .wf-photo {
-      order: 4;
-      position: relative;
-      top: auto;
-      left: auto;
-      width: 117%;
-      max-width: none;
-      margin: 0 0 -60px;
+      font-size: calc(12 * var(--u));
+      line-height: 1.43;
     }
 
     .wf-quote {
-      order: 5;
       z-index: 2;
-      width: 100%;
-      min-height: 0;
-      margin-top: 0;
-      padding: 16px 22px;
-      border-radius: 28px;
+      top: calc(432.8 * var(--u));
+      left: calc(10 * var(--u));
+      width: calc(377.4 * var(--u));
+      min-height: calc(104.5 * var(--u));
+      padding: calc(13 * var(--u)) 0 0 calc(21.9 * var(--u));
+      border-radius: calc(10 * var(--u));
     }
 
     .wf-quote p {
-      max-width: none !important;
-      font-size: 16px;
-      line-height: 1.38;
+      max-width: calc(256 * var(--u)) !important;
+      font-size: calc(12 * var(--u));
+      line-height: 1.31;
     }
 
+    /* пары: агентства – мы, карточка «мы» заходит на предыдущую */
     .wf-compare {
-      grid-template-columns: 1fr;
-      gap: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0 calc(10 * var(--u));
     }
 
-    /* пары: агентства – мы, по очереди */
     .wf-col {
       display: contents;
     }
@@ -374,52 +409,66 @@ const usTitle = 'Мы – TargetFactory';
     .wf-col--them .wf-card:nth-of-type(4) { order: 7; }
     .wf-col--us .wf-card:nth-of-type(4) { order: 8; }
 
-    .wf-col--them .wf-card:not(:nth-of-type(1)) {
-      margin-top: 18px;
+    .wf-card {
+      position: relative;
+      padding: calc(10.7 * var(--u)) calc(14 * var(--u)) calc(14 * var(--u)) calc(10.9 * var(--u));
+      border-radius: calc(10 * var(--u));
     }
 
-    .wf-card {
-      padding: 14px 18px 16px;
-      border-radius: 24px;
+    .wf-col--them .wf-card {
+      margin-top: calc(8 * var(--u));
+    }
+
+    .wf-col--them .wf-card:nth-of-type(1) {
+      margin-top: 0;
+    }
+
+    .wf-col--us .wf-card {
+      z-index: 1;
+      margin-top: calc(-6 * var(--u));
     }
 
     .wf-label {
       display: block;
-      margin-bottom: 10px;
-      font-size: 18px;
+      max-width: calc(220 * var(--u));
+      margin-bottom: calc(16.4 * var(--u));
+      font-size: calc(14 * var(--u));
       font-weight: 600;
-      line-height: 1.1;
+      line-height: 1.01;
     }
 
     .wf-card p {
-      font-size: 15px;
-      line-height: 1.38;
+      font-size: calc(12 * var(--u));
+      line-height: 1.43;
     }
 
     .wf-phrase {
-      margin-top: 40px;
-      font-size: 26px;
-      letter-spacing: -0.8px;
+      max-width: calc(273 * var(--u));
+      margin-top: calc(37 * var(--u));
+      font-size: calc(20 * var(--u));
+      letter-spacing: -0.4px;
     }
 
     .wf-cta {
-      margin-top: 22px;
+      gap: calc(7.5 * var(--u));
+      margin-top: calc(15 * var(--u));
     }
 
     .wf-btn {
-      min-height: 64px;
-      padding-left: 24px;
-      font-size: 17px;
+      width: calc(280 * var(--u));
+      min-height: calc(50.3 * var(--u));
+      padding: calc(2.6 * var(--u)) calc(2.6 * var(--u)) calc(2.6 * var(--u)) calc(26.4 * var(--u));
+      font-size: calc(12.3 * var(--u));
     }
 
     .wf-btn::after {
-      flex-basis: 56px;
-      height: 56px;
-      background-size: 46px;
+      flex-basis: calc(45.1 * var(--u));
+      height: calc(45.1 * var(--u));
+      background-size: calc(37 * var(--u));
     }
 
     .wf-more {
-      font-size: 14px;
+      font-size: calc(12 * var(--u));
     }
   }
 </style>
