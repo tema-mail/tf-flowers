@@ -13,13 +13,6 @@ const pains = [
 
 const cases = [
   {
-    shot: '37313761-2.png',
-    kicker: 'Выручка · Тольятти · 662 тыс. человек',
-    title: 'Цветочный, который ведём в Тольятти',
-    text: 'Реклама, рассылки и чат-бот во ВКонтакте. Выручку и средний чек до и после покажем на созвоне – из кассы и кабинета.',
-    button: 'Хочу больше заказов в будни',
-  },
-  {
     shot: '61363837-3.png',
     kicker: 'Реклама ВКонтакте',
     title: 'Обращение – 251 ₽ вместо 2 500–3 000 ₽',
@@ -94,7 +87,7 @@ const changes = [
       <span class="fs-tag">Кейсы</span>
       <h2>Что изменилось у наших цветочных – в цифрах</h2>
       <p class="fs-lead">Только то, что можно показать из рекламного кабинета или кассы. Каждую цифру покажем на созвоне вживую.</p>
-      <div class="fs-grid fh-swipe" style="--cols: 2; --cols-t: 2; margin-top: 14px; text-align: left;">
+      <div class="fs-grid fh-swipe" style="--cols: 3; --cols-t: 3; margin-top: 14px; text-align: left;">
         {cases.map((c) => (
           <article class="fh-photo-card">
             <div class="fh-shot"><img src={I + c.shot} alt="Скрин рекламного кабинета" loading="lazy" /></div>
