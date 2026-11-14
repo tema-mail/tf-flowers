@@ -1,0 +1,385 @@
+---
+/** Кейс-лендинг (вид клип-лендинга без переключений, понятие владельца 14.11.2026):
+    цветочный магазин, реклама ВКонтакте, оборот 580 000 → 1 180 000 ₽.
+    Цифры – из кейсов Дениса на vc.ru (21.09.2026) и скринов кабинета ВК Рекламы;
+    оборот – со слов клиента, так и подписано. Видео-отзывы – kinescope,
+    расшифровки в docs/otzyvy-rasshifrovki.md. Заявка – общий попап сайта. */
+import Flowers from '../../layouts/Flowers.astro';
+import Footer from '../../components/Footer.astro';
+import CookieNotice from '../../components/CookieNotice.astro';
+import Popup from '../../components/Popup.astro';
+import DocPopups from '../../components/DocPopups.astro';
+
+const I = '/tf-flowers/img/cases/';
+const FORM = '#popup:myform';
+
+const holes = [
+  {
+    n: '01',
+    title: 'Красивый букет в ленте – и в никуда',
+    text: 'Реклама ведёт на пост или в группу. Человек полистал, лайкнул, ушёл. Следующего шага нет – нет и заказа.',
+    price: 'заявка по 2 500–3 000 ₽',
+  },
+  {
+    n: '02',
+    title: 'Реклама на весь город',
+    text: 'Вы платите за людей с другого конца города, которым не повезёте букет за 40 минут. А соседи из ЖК рядом о вас не знают.',
+    price: 'платите за тех, кому не повезёте',
+  },
+  {
+    n: '03',
+    title: 'Купил один раз – и забыт',
+    text: 'Базы нет. К каждому 8 Марта и Дню матери вы покупаете того же клиента заново – по цене новой рекламы.',
+    price: 'каждый праздник – с нуля',
+  },
+];
+
+const funnel = [
+  ['Реклама', 'только по районам доставки и ЖК рядом'],
+  ['Посадочная', 'баннер и предложение, а не лента'],
+  ['Подписка', 'человек сам открывает канал связи'],
+  ['Чат-бот', 'сразу присылает предложение в личку'],
+  ['Флорист', 'получает тёплого человека и закрывает заказ'],
+];
+
+const videos = [
+  {
+    id: 'qanCz44Rme7zJXBcPZJFEH',
+    who: 'Алексей',
+    where: 'цветочный магазин, Тюмень',
+    quote: '«Результат, конечно, впечатлил. Из месяца в месяц растут подписчики, и самое главное – продажи с этого канала есть»',
+  },
+  {
+    id: 'pB2kHWLuyFSAMz9HB5YH5f',
+    who: 'Антон Зайцев',
+    where: 'цветочный магазин, Нижний Новгород',
+    quote: '«От меня не требуют постоянно делать креативы. Ребята полностью сами всё настраивают – и технику, и маркетинг»',
+  },
+  {
+    id: 'sdDRmLfYR18D3GDpCJG4vD',
+    who: 'Руслан',
+    where: 'сеть салонов Boombox, Пенза',
+    quote: '«Прошлый таргетолог не устраивал. Денис за короткое время проявился как профессионал своего дела»',
+  },
+];
+---
+
+<Flowers
+  title="Кейс: цветочный магазин с 580 000 до 1 180 000 ₽ в месяц на рекламе ВКонтакте"
+  description="Разбор рекламы ВКонтакте для цветочного магазина: 209 тёплых обращений по 251 ₽ вместо заявок по 2 500–3 000 ₽, оборот вырос с 580 000 до 1 180 000 ₽. Скрины кабинета и видео-отзывы."
+  canonical="https://targetfactory.ru/flowers/cases/flower-shop-million/"
+>
+  <main class="kl">
+    <header class="kl-top">
+      <div class="kl-wrap kl-top__in">
+        <img src={I + 'denis.webp'} alt="" width="40" height="40" class="kl-top__ava" />
+        <div><b>Денис Коротаев</b><span>Реклама для цветочных магазинов · Target Factory</span></div>
+      </div>
+    </header>
+
+    <!-- 1. Первый экран -->
+    <section class="kl-hero">
+      <div class="kl-wrap kl-hero__grid">
+        <div>
+          <span class="kl-pill">● Реальный кейс · цветочный магазин · ВКонтакте</span>
+          <h1 class="kl-h1">Оборот цветочного:<br /><s>580 000 ₽</s> → <em>1 180 000 ₽</em> в месяц</h1>
+          <p class="kl-lead">Как магазин в спальном районе <b>за три месяца удвоил выручку</b> на рекламе ВКонтакте – без интернет-магазина, без скидок 40% и без розыгрышей. Что было сломано, что сделали и сколько это стоило – с цифрами из кабинета.</p>
+          <div class="kl-facts">
+            <div><b>251 ₽</b><span>тёплое обращение<br />вместо 2 500–3 000 ₽</span></div>
+            <div><b>209</b><span>тёплых обращений<br />за 52 556 ₽</span></div>
+            <div><b>×2</b><span>рекорд оборота<br />к 1 сентября</span></div>
+          </div>
+          <a class="kl-btn" href={FORM}>Хочу такой же разбор своей рекламы</a>
+          <p class="kl-under">Бесплатно. Денис сам смотрит ваш кабинет и группу и говорит, где утекают деньги. Читать кейс – 5 минут.</p>
+        </div>
+        <figure class="kl-shot kl-shot--hero">
+          <img src={I + 'kabinet-209.webp'} alt="Кабинет ВК Рекламы: подписка на рассылку – 209 результатов по 251,47 ₽, потрачено 52 556,30 ₽" width="1400" height="690" />
+          <figcaption>Скрин кабинета ВК Рекламы. Без фотошопа – нажмите, чтобы рассмотреть.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. Дыры -->
+    <section class="kl-sec">
+      <div class="kl-wrap">
+        <span class="kl-tag">Рынок цветов 2026</span>
+        <h2 class="kl-h2">Почему одни цветочные платят 3 000 ₽ за заявку, <em>а у других холодильник пустеет к обеду?</em></h2>
+        <p class="kl-p">До нас владелец запускал рекламу сам. Деньги списывались, сообщения приходили – по 2 500–3 000 ₽ за штуку. При таком ценнике масштабировать нечего: каждый новый клиент съедает маржу букета. Мы разобрали кабинет и нашли три дыры. <u>Проверьте – у вас, скорее всего, хотя бы одна из них есть.</u></p>
+        <div class="kl-holes">
+          {holes.map((h) => (
+            <article class="kl-hole">
+              <span class="kl-hole__n">Дыра №{h.n}</span>
+              <h3>{h.title}</h3>
+              <p>{h.text}</p>
+              <div class="kl-hole__price">Цена ошибки: <b>{h.price}</b></div>
+            </article>
+          ))}
+        </div>
+        <div class="kl-strip">
+          <div><b>Какая дыра съедает ваш бюджет?</b><span>Разберём ваш кабинет и группу за один созвон – бесплатно.</span></div>
+          <a class="kl-btn kl-btn--sm" href={FORM}>Найти дыры в моей рекламе</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Что сделали -->
+    <section class="kl-sec kl-sec--light">
+      <div class="kl-wrap kl-narrow">
+        <span class="kl-tag kl-tag--dark">Что сделали</span>
+        <h2 class="kl-h2">Перестали покупать клики. <em>Начали собирать людей, которые хотят цветы</em></h2>
+        <p class="kl-p">Мы не начали с объявлений. Сначала – воронка: чтобы у человека после клика был понятный следующий шаг, а у магазина оставался его контакт.</p>
+        <ol class="kl-funnel">
+          {funnel.map(([t, d], i) => (
+            <li><span>{i + 1}</span><b>{t}</b><small>{d}</small></li>
+          ))}
+        </ol>
+        <p class="kl-p">Дальше – тест. <b>17 кампаний</b> с разными целями: районы и ЖК, подписчики конкурентов, ретаргетинг, сообщения, подписка на рассылку. Каждый день отключали то, что сжигает деньги, и усиливали то, что приводит людей.</p>
+        <blockquote class="kl-quote">Победила одна связка – подписка на рассылку с чат-ботом. 1 908 переходов по 27,55 ₽ и <b>209 тёплых обращений по 251 ₽</b>. В 10 раз дешевле, чем было.</blockquote>
+        <p class="kl-p">И главное: <b>все 209 человек остались в базе магазина.</b> Перед каждым праздником им можно написать без новой рекламы. А перед 1 сентября магазин поставил рекорд по выручке.</p>
+      </div>
+    </section>
+
+    <!-- 4. Цифры -->
+    <section class="kl-sec">
+      <div class="kl-wrap">
+        <span class="kl-tag">Внутрянка</span>
+        <h2 class="kl-h2">Для тех, кто верит цифрам, <em>а не словам маркетологов</em></h2>
+
+        <article class="kl-fact">
+          <div>
+            <span class="kl-fact__n">Факт №1 · Выручка</span>
+            <h3>Оборот: с 580 000 до рекордных 1 180 000 ₽</h3>
+            <p>До старта – около 580 000 ₽ в месяц. Через три месяца – около 1 000 000 ₽. Перед 1 сентября – рекорд магазина.</p>
+            <small>Данные оборота – со слов владельца магазина. Название не раскрываем по договорённости.</small>
+          </div>
+          <div class="kl-bars" aria-label="Оборот по месяцам">
+            <div style="--h: 49%"><b>580 000 ₽</b><span>до старта</span></div>
+            <div style="--h: 85%"><b>~1 000 000 ₽</b><span>через 3 месяца</span></div>
+            <div class="is-top" style="--h: 100%"><b>1 180 000 ₽</b><span>перед 1 сентября</span></div>
+          </div>
+        </article>
+
+        <article class="kl-fact">
+          <div>
+            <span class="kl-fact__n">Факт №2 · Цена обращения</span>
+            <h3>251 ₽ вместо 2 500–3 000 ₽</h3>
+            <p>Зелёная строка – та самая связка. 52 556 ₽ расхода, 209 обращений. Остальные 16 кампаний – тесты, которые мы честно не складываем в одну красивую цифру.</p>
+          </div>
+          <figure class="kl-shot"><img src={I + 'kabinet-209.webp'} alt="Кабинет ВК Рекламы, 17 кампаний, связка 209 по 251,47 ₽" width="1400" height="690" loading="lazy" /></figure>
+        </article>
+
+        <article class="kl-fact">
+          <div>
+            <span class="kl-fact__n">Факт №3 · Это не случайность</span>
+            <h3>Другой магазин, без сайта: 215 обращений по 245 ₽</h3>
+            <p>Сайта не было вообще – только группа ВКонтакте. Две связки с чат-ботом: 140 обращений по 233 ₽ и 75 по 268 ₽.</p>
+          </div>
+          <figure class="kl-shot"><img src={I + 'kabinet-215.webp'} alt="Кабинет ВК Рекламы: 140 по 232,93 ₽ и 75 по 268,05 ₽" width="1270" height="625" loading="lazy" /></figure>
+        </article>
+
+        <article class="kl-fact">
+          <div>
+            <span class="kl-fact__n">Факт №4 · Третий магазин</span>
+            <h3>Заявка 394 ₽ вместо 1 500–2 000 ₽</h3>
+            <p>Второй месяц работы: 112 подписок через чат-бот по 393,68 ₽. Прямые сообщения в той же рекламе стоили 1 124 ₽ – поэтому ставку сделали на подписку.</p>
+          </div>
+          <figure class="kl-shot"><img src={I + 'kabinet-400.webp'} alt="Кабинет ВК Рекламы: 112 подписок по 393,68 ₽" width="1400" height="500" loading="lazy" /></figure>
+        </article>
+
+        <div class="kl-strip">
+          <div><b>Хотите увидеть такие цифры в своём кабинете?</b><span>Сначала разбор – потом решаете, работать ли.</span></div>
+          <a class="kl-btn kl-btn--sm" href={FORM}>Получить разбор моей рекламы</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Видео-отзывы -->
+    <section class="kl-sec kl-sec--light">
+      <div class="kl-wrap">
+        <span class="kl-tag kl-tag--dark">Говорят владельцы</span>
+        <h2 class="kl-h2">Не верьте нам. <em>Послушайте цветочников, которые с Денисом годами</em></h2>
+        <div class="kl-videos">
+          {videos.map((v) => (
+            <article class="kl-video">
+              <button class="kl-video__play" type="button" data-kinescope={v.id} aria-label={`Смотреть видео-отзыв: ${v.who}`}>
+                <span class="kl-video__icon" aria-hidden="true">▶</span>
+                <span class="kl-video__who"><b>{v.who}</b>{v.where}</span>
+              </button>
+              <p>{v.quote}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Кто вёл -->
+    <section class="kl-sec">
+      <div class="kl-wrap kl-who">
+        <figure class="kl-who__photo"><img src={I + 'denis.webp'} alt="Денис Коротаев за рабочим столом, на экране – рекламный кабинет" width="1100" height="773" loading="lazy" /></figure>
+        <div>
+          <span class="kl-tag">Кто вёл проект</span>
+          <h2 class="kl-h2">Денис Коротаев. <em>Сам сидит в кабинетах клиентов</em></h2>
+          <ul class="kl-list">
+            <li><b>50+ цветочных магазинов</b> запустили по всей России</li>
+            <li><b>90% клиентов</b> работают с нами годами – без текучки</li>
+            <li><b>Ваш кабинет</b> – у вас: полный доступ и контроль</li>
+            <li><b>Считаем маржу</b>, а не охваты: акция не должна съедать прибыль</li>
+            <li><b>Не только цветы:</b> приносим приёмы из автобизнеса и ритейла</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Финал -->
+    <section class="kl-final">
+      <div class="kl-wrap kl-narrow">
+        <h2 class="kl-h2">Следующий кейс <em>может быть про ваш магазин</em></h2>
+        <p class="kl-p">Оставьте заявку – Денис разберёт вашу рекламу и группу, покажет дыры и скажет, сколько обращений реально получить в вашем городе.</p>
+        <p class="kl-filter"><b>Честно о бюджете:</b> для теста нужно от 30 000 ₽ в месяц на рекламу. Меньше – это не тест, а лотерея: креатив не успеет набрать показы, и вы решите, что ВКонтакте «не работает».</p>
+        <a class="kl-btn" href={FORM}>Хочу разбор своей рекламы</a>
+        <p class="kl-under">Бесплатно и без обязательств.</p>
+      </div>
+    </section>
+
+    <a class="kl-sticky" href={FORM}>Разбор моей рекламы – бесплатно</a>
+  </main>
+
+  <div id="rec4182947001"><Footer /></div>
+  <div id="rec4182947101"><CookieNotice /></div>
+  <div id="rec4182986701"><Popup /></div>
+  <DocPopups />
+
+  <div class="kl-lb" data-kl-lb hidden>
+    <button type="button" aria-label="Закрыть">✕</button>
+    <img alt="" />
+  </div>
+</Flowers>
+
+<style is:global>
+  .kl { --bg: #121212; --card: #1c1d1f; --line: #2c2d31; --ink: #f2f2ef; --mut: #a8aaa6; --acc: #b6e42b; --acc-ink: #121212; --warm: #f7f4ee;
+    background: var(--bg); color: var(--ink); font: 400 17px/1.55 'Montserrat', system-ui, sans-serif; }
+  .kl *, .kl *::before { box-sizing: border-box; }
+  .kl-wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+  .kl-narrow { max-width: 820px; }
+  .kl h1, .kl h2, .kl h3 { margin: 0; font-family: 'Oswald', 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: .01em; }
+  .kl em { font-style: normal; color: var(--acc); }
+  .kl-top { border-bottom: 1px solid var(--line); }
+  .kl-top__in { display: flex; gap: 12px; align-items: center; padding-top: 12px; padding-bottom: 12px; font-size: 13px; }
+  .kl-top__in b { display: block; font-size: 15px; }
+  .kl-top__in span { color: var(--mut); }
+  .kl-top__ava { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: 75% 30%; border: 2px solid var(--acc); }
+  .kl-hero { padding: 40px 0 56px; }
+  .kl-hero__grid { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 960px) { .kl-hero__grid { grid-template-columns: 1.05fr 1fr; } }
+  .kl-pill { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--mut); }
+  .kl-pill::first-letter { color: var(--acc); }
+  .kl-h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.02; margin: 16px 0 18px; }
+  .kl-h1 s { color: var(--mut); text-decoration-thickness: 3px; }
+  .kl-lead { font-size: clamp(17px, 2vw, 20px); margin: 0 0 22px; }
+  .kl-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 24px; }
+  .kl-facts div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+  .kl-facts b { display: block; font: 700 clamp(22px, 3.2vw, 32px)/1 'Oswald', sans-serif; color: var(--acc); }
+  .kl-facts span { display: block; margin-top: 6px; font-size: 12.5px; line-height: 1.35; color: var(--mut); }
+  .kl-btn { display: inline-flex; justify-content: center; align-items: center; min-height: 60px; padding: 16px 28px; border-radius: 14px; background: var(--acc); color: var(--acc-ink); font-weight: 800; font-size: 17px; text-transform: uppercase; text-decoration: none; text-align: center; box-shadow: 0 10px 40px rgba(182, 228, 43, .28); transition: transform .15s; }
+  .kl-btn:hover { transform: translateY(-2px); }
+  .kl-btn--sm { min-height: 52px; font-size: 15px; white-space: normal; }
+  .kl-under { margin: 10px 0 0; font-size: 14px; color: var(--mut); }
+  .kl-shot { margin: 0; }
+  .kl-shot img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); cursor: zoom-in; background: #fff; }
+  .kl-shot--hero img { box-shadow: 0 30px 80px rgba(0, 0, 0, .6), 0 0 0 4px rgba(182, 228, 43, .35); }
+  .kl-shot figcaption { margin-top: 8px; font-size: 13px; color: var(--mut); }
+  .kl-sec { padding: 64px 0; }
+  .kl-sec--light { background: var(--warm); color: #17181b; }
+  .kl-sec--light em { color: #4f6b00; }
+  .kl-tag { display: inline-block; border-radius: 999px; padding: 6px 14px; background: var(--acc); color: var(--acc-ink); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+  .kl-tag--dark { background: #17181b; color: var(--acc); }
+  .kl-h2 { font-size: clamp(28px, 4.4vw, 46px); line-height: 1.06; margin: 14px 0 18px; }
+  .kl-p { margin: 0 0 16px; font-size: 17px; }
+  .kl-p u { text-decoration-color: var(--acc); text-underline-offset: 4px; }
+  .kl-holes { display: grid; gap: 14px; margin: 26px 0; }
+  @media (min-width: 900px) { .kl-holes { grid-template-columns: repeat(3, 1fr); } }
+  .kl-hole { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+  .kl-hole__n { align-self: flex-start; background: var(--acc); color: var(--acc-ink); border-radius: 8px; padding: 6px 10px; font: 700 15px 'Oswald', sans-serif; text-transform: uppercase; }
+  .kl-hole h3 { font-size: 22px; line-height: 1.15; margin: 14px 0 10px; }
+  .kl-hole p { margin: 0 0 16px; color: #d6d7d3; flex: 1; }
+  .kl-hole__price { border-top: 1px solid var(--line); padding-top: 12px; font-size: 15px; color: var(--mut); }
+  .kl-hole__price b { color: var(--acc); }
+  .kl-strip { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; margin-top: 24px; }
+  .kl-strip b { display: block; font: 600 22px/1.2 'Oswald', sans-serif; text-transform: uppercase; }
+  .kl-strip span { color: var(--mut); font-size: 15px; }
+  .kl-funnel { list-style: none; padding: 0; margin: 22px 0; display: grid; gap: 8px; }
+  .kl-funnel li { display: grid; grid-template-columns: 40px 1fr; gap: 0 14px; align-items: center; background: #fff; border-radius: 14px; padding: 12px 14px; border: 1px solid #e6e2d8; }
+  .kl-funnel li span { grid-row: span 2; width: 40px; height: 40px; border-radius: 50%; background: #17181b; color: var(--acc); display: grid; place-items: center; font: 700 18px 'Oswald', sans-serif; }
+  .kl-funnel small { color: #5d6068; font-size: 14px; }
+  .kl-quote { margin: 22px 0; padding: 20px 22px; border-left: 6px solid var(--acc); background: #17181b; color: var(--ink); border-radius: 0 14px 14px 0; font-size: 19px; line-height: 1.45; }
+  .kl-quote b { color: var(--acc); }
+  .kl-fact { display: grid; gap: 20px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 16px; }
+  @media (min-width: 900px) { .kl-fact { grid-template-columns: .8fr 1.2fr; } }
+  .kl-fact__n { display: inline-block; background: var(--acc); color: var(--acc-ink); border-radius: 8px; padding: 6px 10px; font: 700 14px 'Oswald', sans-serif; text-transform: uppercase; }
+  .kl-fact h3 { font-size: clamp(22px, 2.8vw, 28px); line-height: 1.15; margin: 12px 0 10px; }
+  .kl-fact p { margin: 0 0 8px; color: #d6d7d3; }
+  .kl-fact small { color: var(--mut); font-size: 13px; }
+  .kl-bars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: end; height: 280px; }
+  .kl-bars div { position: relative; height: var(--h); background: #2c2d31; border-radius: 12px 12px 4px 4px; display: flex; flex-direction: column; justify-content: flex-start; padding: 10px; }
+  .kl-bars .is-top { background: var(--acc); color: var(--acc-ink); box-shadow: 0 0 40px rgba(182, 228, 43, .35); }
+  .kl-bars b { font: 700 clamp(14px, 2vw, 20px)/1.1 'Oswald', sans-serif; }
+  .kl-bars span { font-size: 12px; opacity: .8; margin-top: 4px; }
+  .kl-videos { display: grid; gap: 14px; margin-top: 24px; }
+  @media (min-width: 900px) { .kl-videos { grid-template-columns: repeat(3, 1fr); } }
+  .kl-video { background: #fff; border-radius: 18px; border: 1px solid #e6e2d8; overflow: hidden; }
+  .kl-video__play { position: relative; display: flex; flex-direction: column; justify-content: space-between; width: 100%; aspect-ratio: 9 / 12; border: 0; cursor: pointer; padding: 18px; text-align: left; color: #fff; background: radial-gradient(circle at 70% 30%, #3a4a10, #121212 70%); font: inherit; }
+  .kl-video__play iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .kl-video__icon { align-self: center; margin-top: 30%; width: 76px; height: 76px; border-radius: 50%; background: var(--acc); color: var(--acc-ink); display: grid; place-items: center; font-size: 28px; box-shadow: 0 0 0 10px rgba(182, 228, 43, .2); }
+  .kl-video__who b { display: block; font: 600 22px 'Oswald', sans-serif; text-transform: uppercase; }
+  .kl-video__who { font-size: 14px; color: #d6d7d3; }
+  .kl-video p { margin: 0; padding: 16px 18px 20px; font-size: 15px; color: #2a2b2f; }
+  .kl-who { display: grid; gap: 28px; align-items: center; }
+  @media (min-width: 900px) { .kl-who { grid-template-columns: 1fr 1fr; } }
+  .kl-who__photo { margin: 0; }
+  .kl-who__photo img { width: 100%; height: auto; border-radius: 20px; display: block; cursor: zoom-in; }
+  .kl-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .kl-list li { padding: 12px 14px 12px 44px; position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+  .kl-list li::before { content: '✓'; position: absolute; left: 14px; top: 11px; color: var(--acc); font-weight: 800; }
+  .kl-list b { color: var(--acc); }
+  .kl-final { padding: 72px 0 96px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(182, 228, 43, .16), transparent 60%), var(--bg); }
+  .kl-filter { text-align: left; margin: 0 0 24px; padding: 16px 18px; border: 1px dashed var(--acc); border-radius: 14px; font-size: 15px; color: #d6d7d3; }
+  .kl-sticky { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40; display: none; min-height: 54px; align-items: center; justify-content: center; border-radius: 14px; background: var(--acc); color: var(--acc-ink); font-weight: 800; text-transform: uppercase; text-decoration: none; box-shadow: 0 10px 30px rgba(0, 0, 0, .5); }
+  @media (max-width: 760px) { .kl-sticky.is-on { display: flex; } .kl-final { padding-bottom: 120px; } .kl-btn { width: 100%; } }
+  .kl-lb { position: fixed; inset: 0; z-index: 100; background: rgba(0, 0, 0, .92); display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .kl-lb[hidden] { display: none; }
+  .kl-lb img { max-width: 100%; max-height: 100%; border-radius: 8px; background: #fff; }
+  .kl-lb button { position: fixed; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #fff; color: #000; font-size: 20px; cursor: pointer; }
+</style>
+
+<script is:inline>
+  (function () {
+    /* Фото и скрины – во весь экран с крестиком */
+    var lb = document.querySelector('[data-kl-lb]');
+    var lbImg = lb.querySelector('img');
+    document.querySelectorAll('.kl-shot img, .kl-who__photo img').forEach(function (img) {
+      img.addEventListener('click', function () { lbImg.src = img.src; lbImg.alt = img.alt; lb.hidden = false; });
+    });
+    lb.addEventListener('click', function (e) { if (e.target !== lbImg) lb.hidden = true; });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.hidden = true; });
+
+    /* Видео грузим только по нажатию */
+    document.querySelectorAll('[data-kinescope]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.querySelector('iframe')) return;
+        var f = document.createElement('iframe');
+        f.src = 'https://kinescope.io/embed/' + btn.getAttribute('data-kinescope') + '?autoplay=1';
+        f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+        f.allowFullscreen = true;
+        f.title = btn.getAttribute('aria-label');
+        btn.appendChild(f);
+      });
+    });
+
+    /* Липкая кнопка на телефоне – после первого экрана */
+    var sticky = document.querySelector('.kl-sticky');
+    var hero = document.querySelector('.kl-hero');
+    if (sticky && hero && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { sticky.classList.toggle('is-on', !es[0].isIntersecting); }).observe(hero);
+    }
+  })();
+</script>
