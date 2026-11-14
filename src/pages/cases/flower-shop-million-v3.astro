@@ -372,7 +372,7 @@ const videos = [
   .kl3-check label { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: #fff; border: 1px solid #e6e2d8; border-radius: 14px; cursor: pointer; font-size: 16px; transition: background .15s, border-color .15s; }
   .kl3-check input { flex: 0 0 auto; width: 24px; height: 24px; margin: 0; accent-color: #b3402f; }
   .kl3-check label:has(input:checked) { background: #fde8e4; border-color: #e7a497; }
-  .kl3-verdict { position: sticky; bottom: 10px; display: grid; gap: 8px; padding: 18px; border-radius: 16px; background: #17181b; color: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+  .kl3-verdict { display: grid; gap: 8px; padding: 18px; border-radius: 16px; background: #17181b; color: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
   .kl3-verdict b { font: 700 32px/1 'Oswald', sans-serif; color: var(--acc); }
   .kl3-verdict.is-hot b { color: #ff6b4a; }
   .kl3-verdict p { margin: 0; color: #d6d7d3; font-size: 15px; }
@@ -402,7 +402,7 @@ const videos = [
   .kl3-sticky { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 40; display: none; grid-template-columns: 1fr 1fr 1.2fr; gap: 6px; }
   .kl3-sticky a { display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 12px; background: #1c1d1f; border: 1px solid var(--line); color: var(--ink); font-weight: 800; font-size: 14px; text-transform: uppercase; text-decoration: none; }
   .kl3-sticky a.is-main { background: var(--acc); color: var(--acc-ink); border-color: var(--acc); }
-  @media (max-width: 760px) { .kl3-sticky.is-on { display: grid; } .kl3-verdict { bottom: 70px; } }
+  @media (max-width: 760px) { .kl3-sticky.is-on { display: grid; } }
 </style>
 
 <script is:inline>
